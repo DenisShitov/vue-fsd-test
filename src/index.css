@@ -5,8 +5,21 @@
 @tailwind utilities;
 
 @layer base {
+    :root {
+        --color-primary: 62 151 255;
+        --color-secondary: 126 130 153;
+    }
+
     body {
-        @apply font-inter
+        @apply font-inter transition-all duration-75
+    }
+
+    h1 {
+        @apply text-[32px] leading-4 font-bold
+    }
+
+    h4 {
+        @apply text-xl font-semibold
     }
 }
 
@@ -14,4 +27,40 @@
     .wrapper {
         @apply w-full xl:w-[1300px] mx-[10px] xl:mx-auto
     }
+
+    .header-nav {
+        @apply px-[14px] py-[8px] font-semibold rounded-[6px] text-white
+    }
+    .header-nav.active {
+        @apply text-primary bg-white/10
+    }
+
+    .content-wrapper {
+        @apply p-[15px] xl:p-[30px] bg-white rounded-[12px]
+    }
+
+    .bloglist {
+        @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-[20px] gap-y-[25px] xl:gap-y-[40px] items-stretch
+    }
+
+    .blogcard {
+        @apply flex flex-col gap-[10px] w-full
+    }
+    .blogcard img {
+        @apply rounded-[12px] aspect-video object-cover
+    }
+
+    .tagslist {
+        @apply flex items-center justify-start gap-[10px] flex-wrap
+    }
+
+}
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: all 0.3s ease-in-out;
+}
+.fade-enter-from,
+.fade-leave-to {
+    opacity: 0
 }
