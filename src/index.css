@@ -4,14 +4,16 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @layer base {
     :root {
         --color-primary: 62 151 255;
         --color-secondary: 126 130 153;
+        --color-error: 241 65 108;
     }
 
     body {
-        @apply font-inter
+        @apply font-inter relative
     }
 
     h1 {
@@ -20,6 +22,10 @@
 
     h4 {
         @apply text-xl font-semibold
+    }
+
+    button {
+        @apply text-[13px] leading-[14px] text-center py-[12px] rounded-[6px] font-bold hover:brightness-110 transition-all
     }
 }
 
@@ -44,9 +50,9 @@
     }
 
     .blogcard {
-        @apply flex flex-col gap-[10px] w-full
+        @apply flex flex-col gap-[10px] w-full cursor-pointer hover:brightness-110
     }
-    .blogcard img {
+    .blogimage {
         @apply rounded-[12px] aspect-video object-cover
     }
 
@@ -54,6 +60,35 @@
         @apply flex items-center justify-start gap-[10px] flex-wrap
     }
 
+    .input {
+        @apply w-full text-[13px] leading-[14px] font-medium bg-transparent border-0 outline-0 placeholder-[#D8D8E5]
+    }
+    .input.textarea {
+        @apply resize-none overflow-hidden
+    }
+
+    .inputblock {
+        @apply flex items-start py-[13px] px-[10px] rounded-[6px] gap-[10px] w-full bg-[#F9F9F9] hover:outline hover:outline-[2px] hover:outline-primary/80
+    }
+    .inputblock.error {
+        @apply hover:outline-error/80
+    }
+    .inputblock.focused {
+        @apply ring-[4px] ring-offset-1 ring-primary/30 outline outline-[2px] outline-primary/80
+    }
+    .inputblock.focused.error {
+        @apply ring-error/30 outline-error/80
+    }
+
+    button.primary {
+        @apply bg-primary text-white
+    }
+    button.secondary {
+        @apply bg-[#EEF6FF] text-primary
+    }
+    button.disabled {
+        @apply bg-[#F9F9F9] text-[#D8D8E5] pointer-events-none
+    }
 }
 
 @layer utilities {

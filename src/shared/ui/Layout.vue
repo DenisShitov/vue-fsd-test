@@ -2,11 +2,11 @@
 import IconLogoMain from '../../app/assets/icons/logo-main.svg?component'
 import IconBurger from '../../app/assets/icons/burger.svg?component'
 import {useWindowSize, UseWindowSizeReturn} from '@vueuse/core'
-import {computed} from "vue";
+import {computed, ComputedRef} from "vue";
 
 const { width }: UseWindowSizeReturn = useWindowSize()
 
-const isMobile: boolean = computed(() => width.value < 600)
+const isMobile: ComputedRef<boolean> = computed(() => width.value < 600)
 </script>
 
 <template>

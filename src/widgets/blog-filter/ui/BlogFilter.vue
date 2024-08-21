@@ -3,12 +3,12 @@ import IconSearch from '../../../app/assets/icons/search.svg?component'
 import IconChevron from '../../../app/assets/icons/chevron.svg?component'
 import {FilterTags} from "../../../features/filter-tags";
 import {InputText} from "../../../shared";
-import {useBlogStore} from "../../../app/store/blog.ts";
+import {useBlogFilterStore} from "../../../app";
 import {Ref, ref, watch} from "vue";
 
 const showFilter: Ref<boolean> = ref(true)
 
-const store = useBlogStore()
+const filterStore = useBlogFilterStore()
 
 const search = ref('')
 
@@ -17,7 +17,7 @@ const onClearSearch = (): void => {
 }
 
 watch(search, () => {
-    store.updateTitleFilter(search.value.toLowerCase())
+    filterStore.updateTitleFilter(search.value.toLowerCase())
 })
 </script>
 
@@ -44,8 +44,8 @@ watch(search, () => {
             <div class="flex items-center gap-[10px] order-2 md:order-3">
 
                 <div
-                    v-if="store.getTagsFilter.length"
-                    @click="store.clearTagsFilter()"
+                    v-if="filterStore.getTagsFilter.length"
+                    @click="filterStore.clearTagsFilter()"
                     class="clear">
                     Очистить
                 </div>
@@ -61,8 +61,8 @@ watch(search, () => {
         <transition name="show">
             <div v-if="showFilter" class="bottom">
                 <filter-tags
-                    :selected="store.getTagsFilter"
-                    @check="(name) => store.updateTagsFilter(name)"
+                    :selected="filterStore.getTagsFilter"
+                    @check="(name) => filterStore.updateTagsFilter(name)"
                 />
             </div>
         </transition>

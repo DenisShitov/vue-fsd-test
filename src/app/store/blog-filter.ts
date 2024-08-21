@@ -1,4 +1,4 @@
-import {defineStore} from "pinia";
+import {defineStore, StoreDefinition} from "pinia";
 import {computed, ComputedRef, reactive} from "vue";
 
 interface Filter {
@@ -6,13 +6,14 @@ interface Filter {
     title: string
 }
 
-export const useBlogStore = defineStore('blog', () => {
+export const useBlogFilterStore: StoreDefinition = defineStore('blog-filter', () => {
 
     const filter: Filter = reactive({
         tags    : [],
         title   : ''
     })
 
+    const getFilter: ComputedRef<Filter> = computed(() => filter)
     const getTagsFilter: ComputedRef<string[]> = computed(() => filter.tags)
     const getTitleFilter: ComputedRef<string> = computed(() => filter.title)
 
@@ -33,5 +34,5 @@ export const useBlogStore = defineStore('blog', () => {
         filter.title = ''
     }
 
-    return { filter, getTagsFilter, getTitleFilter, updateTagsFilter, clearTagsFilter, updateTitleFilter, clearTitleFilter }
+    return { getFilter, getTagsFilter, getTitleFilter, updateTagsFilter, clearTagsFilter, updateTitleFilter, clearTitleFilter }
 })

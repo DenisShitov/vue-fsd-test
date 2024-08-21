@@ -7,4 +7,5 @@ export interface Blog {
     period: number,
     image: string,
     tags?: string[]
+    comments?: any[]
 }

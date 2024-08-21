@@ -3,7 +3,7 @@ import {Ref, ref} from "vue";
 
 export function useApi(url: string, filterFn: CallableFunction) {
 
-    const data: Ref<any> = ref(null)
+    const data: Ref<any[]|null> = ref(null)
 
     const fetchData = async () => {
         data.value = null

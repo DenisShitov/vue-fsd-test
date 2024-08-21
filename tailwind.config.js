@@ -19,6 +19,7 @@ export default {
             colors: {
                 primary: 'rgb(var(--color-primary) / <alpha-value>)',
                 secondary: 'rgb(var(--color-secondary) / <alpha-value>)',
+                error: 'rgb(var(--color-error) / <alpha-value>)',
             }
         },
     },

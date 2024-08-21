@@ -2,7 +2,7 @@
 import IconCheck from '../../app/assets/icons/check.svg?component'
 import IconPlus from '../../app/assets/icons/plus.svg?component'
 import IconCross from '../../app/assets/icons/cross.svg?component'
-import { useMouseInElement } from '@vueuse/core'
+import {useMouseInElement, UseMouseInElementReturn} from '@vueuse/core'
 import {Ref, ref} from "vue";
 
 const {name} = defineProps<{
@@ -16,7 +16,7 @@ const emit = defineEmits<{
 
 const target: Ref<HTMLDivElement | null> = ref(null)
 
-const { isOutside }: { isOutside: boolean } = useMouseInElement(target)
+const { isOutside }: UseMouseInElementReturn = useMouseInElement(target)
 </script>
 
 <template>
