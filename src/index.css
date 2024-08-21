@@ -11,11 +11,11 @@
     }
 
     body {
-        @apply font-inter transition-all duration-75
+        @apply font-inter
     }
 
     h1 {
-        @apply text-[32px] leading-4 font-bold
+        @apply text-[32px] leading-[32px] font-bold
     }
 
     h4 {
@@ -25,7 +25,7 @@
 
 @layer components {
     .wrapper {
-        @apply w-full xl:w-[1300px] mx-[10px] xl:mx-auto
+        @apply w-full xl:w-[1300px] px-[10px] xl:mx-auto
     }
 
     .header-nav {
@@ -56,11 +56,17 @@
 
 }
 
-.fade-enter-active,
-.fade-leave-active {
-    transition: all 0.3s ease-in-out;
+@layer utilities {
+    .flex-center-row {
+        @apply flex items-center justify-center
+    }
+    .fade-enter-active,
+    .fade-leave-active {
+        transition: all 0.3s ease-in-out;
+    }
+    .fade-enter-from,
+    .fade-leave-to {
+        opacity: 0
+    }
 }
-.fade-enter-from,
-.fade-leave-to {
-    opacity: 0
-}
+

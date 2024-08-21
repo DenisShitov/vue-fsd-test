@@ -1,7 +1,9 @@
-export function filterBlogsFn(data: string, tagsFilterArray: any[]) {
+export function filterBlogsFn(data: string, tagsFilterArray: any[], titleFilter: string) {
     let dataArray: object[] = JSON.parse(data)
 
-    if (tagsFilterArray.length) return dataArray.filter((el: any) => {
+    if(titleFilter.length) dataArray = dataArray.filter((el: any) => el.title.toLowerCase().includes(titleFilter))
+
+    if (tagsFilterArray.length) dataArray = dataArray.filter((el: any) => {
         return tagsFilterArray.every(filterTag => !!el.tags.includes(filterTag))
     })
 

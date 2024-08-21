@@ -1,10 +1,10 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import './index.css'
-import { Home } from './pages/home'
+import { PageHome } from './pages/home'
 
 const pinia = createPinia()
 
-const app = createApp(Home)
+const app = createApp(PageHome)
 app.use(pinia)
 app.mount('#app')

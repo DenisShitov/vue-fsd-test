@@ -9,6 +9,7 @@ const {name} = defineProps<{
     name: string
     active: boolean
 }>()
+
 const emit = defineEmits<{
     (e: 'check', name: string): void
 }>()

@@ -10,7 +10,7 @@ const store = useBlogStore()
 
 const {data, fetchData} = useApi(
     '/items.json',
-    (data: string) => filterBlogsFn(data, toValue(store.getTagsFilter))
+    (data: string) => filterBlogsFn(data, toValue(store.getTagsFilter), toValue(store.getTitleFilter))
 )
 
 onMounted(async () => {
